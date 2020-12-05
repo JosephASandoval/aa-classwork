@@ -26,10 +26,27 @@ class PolyTreeNode
     child_node.parent=(nil)
   end
 
+  def dfs(target_value=nil, &prc)
+    prc ||= Proc.new { |node| node.value == target_value }
+    #1st check if current_node == node
+    return self if prc.call(self)
+    #2nd memoize the current_node = holding visited nodes in an array
+    self.children.each do |child|
+      #p child.value
+      result = child.dfs(&prc)
+      return result if !result.nil?
+    end
+    #3rd call dfs on first (leftmost child) if child has children 
+    #4th return result
+    #5 if we ran through entire tree and did not find target, return nil
+    nil
+  end
+
+  def bfs(target_value)
+    return self if self.value == target_value
+    
+  end
 end
-
-
-
 
 @f = PolyTreeNode.new("f")
 @g = PolyTreeNode.new("e")
@@ -40,4 +57,8 @@ end
 @a = PolyTreeNode.new("a", [@b, @c])
 
 
-# tree = [a, [b, [d, e], c, [f, g]]]
+#         @a
+#     @b      @c
+#   @d  @e  @f  @g
+# find "f"
+#   [a, c, f]
