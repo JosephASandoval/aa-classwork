@@ -9,44 +9,80 @@ class PolyTreeNode
   end
 
   def parent=(node)
-    if parent
-      parent.children.delete(self)
+    if self.parent
+      self.parent.children.delete(self)
     end
+    
     @parent = node
-    node.children << self if self.parent != nil
-    return if self.parent == node
+
+    if self.parent
+      self.parent.children << self
+    end
   end
 
   def add_child(child_node)
-    child_node.parent=(self)
+    child_node.parent = self 
   end
 
   def remove_child(child_node)
     raise "Error" if !self.children.include?(child_node)
-    child_node.parent=(nil)
+    child_node.parent = nil
   end
 
-  def dfs(target_value=nil, &prc)
-    prc ||= Proc.new { |node| node.value == target_value }
-    #1st check if current_node == node
-    return self if prc.call(self)
-    #2nd memoize the current_node = holding visited nodes in an array
-    self.children.each do |child|
-      #p child.value
-      result = child.dfs(&prc)
-      return result if !result.nil?
+  def dfs(target_value = nil)
+    return self if self.value == target_value
+
+    self.children.each do |child_node|
+      result = child_node.dfs(target_value)
+      if result != nil
+        return result
+      end
     end
-    #3rd call dfs on first (leftmost child) if child has children 
-    #4th return result
-    #5 if we ran through entire tree and did not find target, return nil
+
     nil
   end
 
-  def bfs(target_value)
+  def bfs(target_value = nil)
     return self if self.value == target_value
-    
+
+    queue = [self]
+
+    until queue.empty?
+      queue[0].children.each do |child_node|
+        if child_node.value == target_value
+          return child_node
+        end
+  
+        queue << child_node
+      end
+
+      queue.shift
+    end
+    nil
   end
 end
+
+
+#         @a
+#     @b      @c
+#   @d  @e  @f  @g
+# find "f"
+#   [a, c, f]
+
+
+
+
+# [a, [b, [d, e], c, [f, g]]]
+# [a, b, c]
+# [b, c]
+# [b, c, d, e]
+# [c, d, e]
+# [c, d, e, f, g]
+# [d, e, f, g]
+# [e, f, g]
+# [f, g]
+# [g]
+
 
 @f = PolyTreeNode.new("f")
 @g = PolyTreeNode.new("e")
@@ -57,8 +93,3 @@ end
 @a = PolyTreeNode.new("a", [@b, @c])
 
 
-#         @a
-#     @b      @c
-#   @d  @e  @f  @g
-# find "f"
-#   [a, c, f]
