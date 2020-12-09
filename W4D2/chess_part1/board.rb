@@ -4,8 +4,7 @@ class Board
     attr_accessor :rows
 
     def initialize
-        @rows = Array.new(8) { Array.new(8)}
-        # @null_piece = NullPiece
+        @rows = Array.new(8) { Array.new(8, NullPiece.new)}
     end
     
     def move_piece(start_pos, end_pos)
