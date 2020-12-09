@@ -1,3 +1,4 @@
+require_relative "piece.rb"
 class Board
 
     attr_accessor :rows
@@ -12,6 +13,9 @@ class Board
         raise "That is not a valid move" if !valid_pos?(start_pos) || !valid_pos?(end_pos)
         raise "That is not a valid move" if !empty?(end_pos)
         piece = self[start_pos]
+        piece.pos = end_pos
+        self[end_pos] = piece
+        self[start_pos] = nil
     end
 
     def [](pos)
@@ -19,9 +23,9 @@ class Board
         @rows[row][col]
     end
 
-    def []=(pos, val)
+    def []=(pos, piece)
         row, col = pos
-        @rows[row][col] = val
+        @rows[row][col] = piece
     end
 
     def empty?(pos)
@@ -35,7 +39,8 @@ class Board
         true
     end
 
-    def add_piece(piece, pos)
+    def add_piece(color, pos)
+        piece = Piece.new(color, self, pos)
         raise "Not empty" if !empty?(pos)
         self[pos] = piece
     end
