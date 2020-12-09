@@ -1,3 +1,6 @@
+require_relative "piece.rb"
+require_relative "../modules/slideable.rb"
+
 class Queen < Piece
 
   include Slideable
