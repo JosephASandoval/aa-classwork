@@ -10,6 +10,8 @@ class Queen < Piece
     end
   end
 
-
+  def move_dirs
+    :both
+  end
   
 end

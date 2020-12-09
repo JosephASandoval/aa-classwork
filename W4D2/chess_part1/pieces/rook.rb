@@ -10,6 +10,8 @@ class Rook < Piece
     end
   end
 
-
+  def move_dirs
+    :horizontal
+  end
   
 end
