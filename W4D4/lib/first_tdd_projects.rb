@@ -43,7 +43,7 @@ def stock_picker(prices)
   i = 0
   while i < prices.length
     buy_price = prices[i]
-    j = i+1
+    j = i + 1
     while j < prices.length
       sell_price = prices[j]
       profit = sell_price - buy_price
@@ -57,3 +57,5 @@ def stock_picker(prices)
   end
   arr
 end
+
+
