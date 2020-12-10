@@ -5,3 +5,19 @@ def my_uniq(arr)
   end
   new_arr
 end
+
+class Array
+
+  def two_sum
+    hash = {}
+    arr = []
+    self.each_with_index do |num, idx|
+      if hash.has_key?(-num)
+        arr << [hash[-num], idx]
+      else
+        hash[num] = idx
+      end
+    end 
+    arr.sort
+  end
+end
