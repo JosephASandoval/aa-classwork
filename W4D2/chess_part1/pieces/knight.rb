@@ -9,7 +9,18 @@ class Knight < Piece
     end
   end
 
-
+  def move_diffs
+    [
+      [1, 2],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
+  end
 
   
 end

@@ -10,6 +10,10 @@ class Bishop < Piece
     end
   end
 
+  def move_dirs
+    :diagonal
+  end
+
 
 
   
