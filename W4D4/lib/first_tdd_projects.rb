@@ -38,9 +38,22 @@ end
 
 def stock_picker(prices)
   max_profit = 0
-  buy_day = 0
-  sell_day = 0
+  arr = []
 
-  prices.each.with_index
-  
+  i = 0
+  while i < prices.length
+    buy_price = prices[i]
+    j = i+1
+    while j < prices.length
+      sell_price = prices[j]
+      profit = sell_price - buy_price
+      if profit > max_profit
+        arr = [i, j]
+        max_profit = profit
+      end
+      j += 1
+    end
+    i += 1
+  end
+  arr
 end
