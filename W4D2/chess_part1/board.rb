@@ -1,10 +1,13 @@
-require_relative "piece.rb"
+require_relative "pieces/piece.rb"
+require_relative "pieces/null.rb"
+
 class Board
 
     attr_accessor :rows
 
     def initialize
-        @rows = Array.new(8) { Array.new(8, NullPiece.new)}
+        @null = NullPiece.instance
+        @rows = Array.new(8) { Array.new(8, @null)}
     end
     
     def move_piece(start_pos, end_pos)

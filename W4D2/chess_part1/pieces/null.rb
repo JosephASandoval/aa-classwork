@@ -1,3 +1,6 @@
+require_relative "piece.rb"
+require "singleton"
+
 class NullPiece < Piece
   include Singleton
 
@@ -7,10 +10,5 @@ class NullPiece < Piece
     @color = :empty
     @symbol = :null
   end
-
-
-
-
-
 
 end
