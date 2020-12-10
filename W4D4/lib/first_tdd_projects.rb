@@ -23,16 +23,24 @@ class Array
 end
 
 def my_transpose(arr)
-  new_arr = []
+  num_row = arr.length
+  num_col = arr.first.length
 
-  (0...arr.length)
+  new_arr = Array.new(num_col) { Array.new(num_row) }
 
-  # (0...arr.length).each do |i|
-  #   sub_arr = [arr[i]]
-  #   arr.each do |row|
-  #     sub_arr << row[i]
-  #   end
-  #   new_arr << sub_arr
-  # end
+  (0...num_row).each do |row|
+    (0...num_col).each do |col|
+      new_arr[col][row] = arr[row][col]
+    end
+  end
   new_arr
+end
+
+def stock_picker(prices)
+  max_profit = 0
+  buy_day = 0
+  sell_day = 0
+
+  prices.each.with_index
+  
 end

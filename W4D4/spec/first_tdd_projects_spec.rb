@@ -25,3 +25,10 @@ describe "#my_transpose" do
     expect(my_transpose(arr)).to eq(cols)
   end
 end
+
+describe "#stock_picker" do
+  it "finds a pair of indices of an array the has the largest difference in value" do
+    prices = [10, 1, 20, 40, 15]
+    expect(stock_picker(prices)).to eq([1, 3])
+  end
+end
