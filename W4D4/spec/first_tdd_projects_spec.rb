@@ -17,3 +17,11 @@ describe "Array#two_sum" do
     expect(arr.two_sum).to eq([[0, 4], [2, 3]])
   end
 end
+
+describe "#my_transpose" do
+  it "transepose a 2D-array" do
+    arr = [[0, 1, 2], [3, 4, 5],[6, 7, 8]]
+    cols = [[0, 3, 6],[1, 4, 7],[2, 5, 8]]
+    expect(my_transpose(arr)).to eq(cols)
+  end
+end

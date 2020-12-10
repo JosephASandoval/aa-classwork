@@ -21,3 +21,18 @@ class Array
     arr.sort
   end
 end
+
+def my_transpose(arr)
+  new_arr = []
+
+  (0...arr.length)
+
+  # (0...arr.length).each do |i|
+  #   sub_arr = [arr[i]]
+  #   arr.each do |row|
+  #     sub_arr << row[i]
+  #   end
+  #   new_arr << sub_arr
+  # end
+  new_arr
+end
