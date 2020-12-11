@@ -12,3 +12,15 @@ end
 # p first_anagram?("gizmoasds", "sallyasdf")    #=> false
 # p first_anagram?("elvis", "lives")    #=> true
 
+#O(n^2)
+def second_anagram?(first_str, second_str)
+    first_str.each_char.with_index do |ele, i|
+        idx = second_str.index(ele)
+        second_str[idx] = "" unless idx.nil?
+    end
+    return true if second_str.length == 0
+    false
+end
+
+# p second_anagram?("gizmogizmo", "sallysally")    #=> false
+# p second_anagram?("elvis", "lives")    #=> true
