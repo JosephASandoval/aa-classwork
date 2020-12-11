@@ -1,3 +1,5 @@
+require "byebug"
+
 #O(n^2)
 def bad_two_sum?(arr, target)
     arr.each_with_index do |ele1, i1|
@@ -14,11 +16,12 @@ end
 # p bad_two_sum?(arr, 6) # => should be true
 # p bad_two_sum?(arr, 10) # => should be false
 
-# 
+# O(n^2) => sorting can make it more efficient
 def okay_two_sum?(arr, target)
-    arr = arr.sort
-    arr.each do |ele|
-        return true unless arr.bsearch{ |x| x == (target - ele) }.nil?
+  arr = arr.sort
+  arr.each.with_index do |ele, idx|
+      target_index = arr.rindex(target - ele)
+      return true if !target_index.nil? && idx != target_index
     end
     false
 end
