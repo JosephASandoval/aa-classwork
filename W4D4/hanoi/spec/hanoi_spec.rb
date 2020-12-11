@@ -36,5 +36,15 @@ describe Hanoi do
     end
   end
 
+  describe "#won?" do
+    it "determines if game state is won and over" do
+      expect(hanoi.won?).to be false
+
+      hanoi.piles = [[],[],[3,2,1]]
+      expect(hanoi.won?).to be true
+    end
+
+  end
+
 
 end
