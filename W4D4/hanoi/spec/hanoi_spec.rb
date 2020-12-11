@@ -18,14 +18,9 @@ describe Hanoi do
     end
   end
 
-  describe "#valid_move?(start, end)" do
+  describe "#valid_move?(start_pile, end_pile)" do
     it "checks the validity of the move" do
-      before(:each) do
-        hanoi.move(0,2)
-      end
-      #@piles[start] is empty => invalid
-      #disk = @piles[start].last
-      #disk < @piles[end].last => valid
+      hanoi.move(0,2)
 
       expect(hanoi.valid_move?(0, 2)).to be false
       expect(hanoi.valid_move?(1, 2)).to be false
@@ -33,7 +28,11 @@ describe Hanoi do
       expect(hanoi.valid_move?(0, 1)).to be true
       expect(hanoi.valid_move?(2, 1)).to be true
       expect(hanoi.valid_move?(2, 0)).to be true
-            
+      expect(hanoi.valid_move?(3, 0)).to be false
+      expect(hanoi.valid_move?(0, 3)).to be false
+      expect(hanoi.valid_move?(-3, 0)).to be false
+      expect(hanoi.valid_move?(0, -3)).to be false
+        
     end
   end
 
