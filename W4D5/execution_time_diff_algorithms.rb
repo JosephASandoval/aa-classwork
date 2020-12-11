@@ -1,3 +1,4 @@
+require "byebug"
 
 #O(n^2)
 def my_min_1(arr)
@@ -25,7 +26,7 @@ end
 
 
 #O(n^2)
-def largest_contiguous_subsum(arr)
+def largest_contiguous_subsum_1(arr)
   sub_arr = []
 
   i = 0
@@ -42,7 +43,26 @@ end
 
 
 list = [2, 3, -6, 7, -6, 7]
-p largest_contiguous_subsum(list) # => 8 (from [7, -6, 7])
+p largest_contiguous_subsum_1(list) # => 8 (from [7, -6, 7])
 
 list = [-5, -1, -3]
-p largest_contiguous_subsum(list) # => -1 (from [-1])
+p largest_contiguous_subsum_1(list) # => -1 (from [-1])
+
+def largest_contiguous_subsum_2(arr)
+    debugger
+    largest_sum = arr[0]
+    current_sum = 0
+    arr.each_with_index do |ele, i|
+        largest_sum = ele if ele > largest_sum
+        current_sum += ele
+        largest_sum = current_sum if current_sum > largest_sum
+        # current_sum = ele
+    end
+    largest_sum
+end
+
+list = [2, 3, -6, 7, -6, 7]
+p largest_contiguous_subsum_2(list) # => 8 (from [7, -6, 7])
+
+list = [-5, -1, -3]
+p largest_contiguous_subsum_2(list) # => -1 (from [-1])
