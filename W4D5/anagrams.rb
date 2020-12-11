@@ -22,5 +22,36 @@ def second_anagram?(first_str, second_str)
     false
 end
 
-# p second_anagram?("gizmogizmo", "sallysally")    #=> false
+# p second_anagram?("gizmo", "sally")    #=> false
 # p second_anagram?("elvis", "lives")    #=> true
+
+#O(nlogn)
+def third_anagram?(first_str, second_str)
+  first_sorted = first_str.chars.sort
+  second_sorted = second_str.chars.sort
+  first_sorted == second_sorted
+end
+
+# p third_anagram?("gizmo", "sally")    #=> false
+# p third_anagram?("elvis", "lives")    #=> true
+
+# O(n)
+def fourth_anagram?(first_str, second_str)
+  # first_count = Hash.new(0)
+  # second_count = Hash.new(0)
+  # first_str.each_char { |char| first_count[char] += 1 }
+  # second_str.each_char { |char| second_count[char] += 1 }
+  # first_count == second_count
+
+  anagram = true
+  count = Hash.new(0)
+  first_str.each_char { |char| count["first_#{char}"] += 1 }
+  second_str.each_char { |char| count["second_#{char}"] += 1 }
+  first_str.each_char do |char|
+    anagram = false unless count["first_#{char}"] == count["second_#{char}"]
+  end
+  anagram
+end
+
+p fourth_anagram?("gizmo", "sally")    #=> false
+p fourth_anagram?("elvis", "lives")    #=> true
