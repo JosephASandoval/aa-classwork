@@ -1,13 +1,20 @@
+require "byebug"
+
+
 class MaxIntSet
   def initialize(max)
     @store = Array.new(max, false)
   end
 
   def insert(num)
-    raise "out of range" if num > @store.length
+    # debugger
+    raise "Out of bounds" if num > @store.length
+    @store[num] = true
+    true
   end
 
   def remove(num)
+    @store[num] = false
   end
 
   def include?(num)
