@@ -44,10 +44,11 @@ class IntSet
   end
 
   def remove(num)
+    self[num].delete(num)
   end
 
   def include?(num)
-    return true if self[num] == num
+    return true if self[num].include?(num)
     false
   end
 
@@ -70,19 +71,32 @@ class ResizingIntSet
     @count = 0
   end
 
+  def inspect
+    @store
+  end
+
   def insert(num)
+    # debugger
+    self[num] << num unless self[num].include?(num)
   end
 
   def remove(num)
+    self[num].delete(num)
   end
 
   def include?(num)
+    return true if self[num].include?(num)
+    false    
+  end
+
+  def count
+    
   end
 
   private
 
   def [](num)
-    # optional but useful; return the bucket corresponding to `num`
+    @store[num % num_buckets]
   end
 
   def num_buckets
