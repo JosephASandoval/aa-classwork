@@ -110,16 +110,18 @@ class ResizingIntSet
   end
 
   def resize!
-    if count == num_buckets
-      num_buckets *= 2
-      arr = Array.new(num_buckets) {Array.new}
-      @store.each do |bucket|
-        bucket.each do |el|
-          arr[num % num_buckets] << num unless arr[num % num_buckets].include?(num)
-        end
-      end
-      @store = arr
-    end
-    @store
+    debugger
+    s = "s"
+  #   if count == num_buckets
+  #     num_buckets *= 2
+  #     arr = Array.new(num_buckets) {Array.new}
+  #     @store.each do |bucket|
+  #       bucket.each do |el|
+  #         arr[num % num_buckets] << num unless arr[num % num_buckets].include?(num)
+  #       end
+  #     end
+  #     @store = arr
+  #   end
+  #   @store
   end
 end
