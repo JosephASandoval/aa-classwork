@@ -2,13 +2,15 @@ require "byebug"
 
 
 class MaxIntSet
+  attr_reader :store
+
   def initialize(max)
     @store = Array.new(max, false)
   end
 
   def insert(num)
     # debugger
-    raise "Out of bounds" if num > @store.length
+    raise "Out of bounds" if num > @store.length || num < 0
     @store[num] = true
     true
   end
@@ -38,18 +40,21 @@ class IntSet
   end
 
   def insert(num)
+    self[num] << num
   end
 
   def remove(num)
   end
 
   def include?(num)
+    return true if self[num] == num
+    false
   end
 
   private
 
   def [](num)
-    # optional but useful; return the bucket corresponding to `num`
+    @store[num % num_buckets]
   end
 
   def num_buckets
