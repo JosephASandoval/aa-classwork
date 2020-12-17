@@ -57,3 +57,16 @@ VALUES (
   (SELECT id FROM users WHERE fname = 'joe')
 );
 
+INSERT INTO replies(body, question_id, user_id)
+VALUES (
+  'yes!',
+  (SELECT id FROM questions WHERE title = 'knock knock?'),
+  (SELECT id FROM users WHERE fname = 'joe')
+  -- (select author_id from questions where title = 'knock knock?')
+);
+
+INSERT INTO question_likes(question_id,user_id)
+VALUES (
+  (SELECT id FROM questions WHERE body = 'who''s there?'),
+  (SELECT id FROM users WHERE lname = 'sand')
+);
