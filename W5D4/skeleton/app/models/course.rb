@@ -13,4 +13,12 @@ class Course < ApplicationRecord
         foreign_key: :prereq_id,
         class_name: :Course
 
+    belongs_to :instructor,
+        primary_key: :id,
+        foreign_key: :instructor_id,
+        class_name: :User
+
 end
+
+
+# Finally, add an instructor association to Course. This will point to a User object. Note that Course is now related to User in two ways: instructor and enrolled_students.
