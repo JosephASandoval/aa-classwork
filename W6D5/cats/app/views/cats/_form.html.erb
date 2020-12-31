@@ -1,0 +1,56 @@
+<form action="<%= action_url %>" method="POST">
+
+    <% if type == :edit %>
+        <input type="hidden" name="_method" value="PATCH">
+    <% end %>
+
+    <label>Birthdate:
+        <input type="date" name="cat[birth_date]" value="<%= cat.birth_date %>" />
+    </label>
+
+    <br>
+
+    <label>Color:
+        <input type="string" name="cat[color]" value="<%= cat.color %>">
+    </label>
+
+    <br>
+
+    <label>Name:
+        <input type="string" name="cat[name]"value="<%= cat.name %>" >
+    </label>
+
+    <br>
+
+    <label>Sex:
+        <input type="string" name="cat[sex]" value="<%= cat.sex %>">
+    </label>
+
+    <br>
+
+    <label>Description:
+        <input type="text" name="cat[description]" value="<%= cat.description %>">
+    </label>
+
+    <br>
+
+    <input 
+    type="radio"
+    id="male"
+    name="cat[sex]"
+    value="M"> <label for="male">Male</label>
+
+    <input 
+    type="radio"
+    id="female"
+    name="cat[sex]"
+    value="F"> <label for="female">Female</label>
+
+    <input 
+    type="radio"
+    id="other"
+    name="cat[sex]"
+    value="O"> <label for="male">Other</label>
+</form>
+
+
