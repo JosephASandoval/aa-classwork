@@ -19,7 +19,9 @@ class CatRentalRequest < ApplicationRecord
     class_name: :Cat
 
   def overlaping_request
-    
+    CatRentalRequest
+      .select(:id)
+      .where
   end
 
 end
