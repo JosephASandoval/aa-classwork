@@ -24,9 +24,9 @@
     }
   }
 
-  span {
+  // span {
 
-  }
+  // }
 }
 
 .right-nav  {
@@ -40,9 +40,9 @@
       margin: 5px;
     }
 
-    > li:last-of-type {
+    // > li:last-of-type {
   
-    }
+    // }
   }
   
   i {
@@ -53,4 +53,5 @@
 .left-nav > ul > li:hover,
 .right-nav > ul > li:last-of-type:hover {
   background: $lightest-gray;
+  cursor: pointer;
 }
