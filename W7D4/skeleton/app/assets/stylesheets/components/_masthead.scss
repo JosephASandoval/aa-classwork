@@ -6,6 +6,8 @@
 	position: relative;
 }
 
+
+
 .language-nav {
 	position: absolute;
 	top: -15px;
@@ -27,6 +29,10 @@
 	ul {
 		display: flex;
 	}
+}
+
+.language-nav ul li:first-child {
+	font-weight: bold;
 }
 
 .logo {
