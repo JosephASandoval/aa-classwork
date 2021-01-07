@@ -1,1 +1,19 @@
 // Use the gear_dropdown.png screenshot as a style guide
+#gear-dropdown-cog {
+  position: relative;
+}
+
+#gear-dropdown-cog:hover {
+  #gear-dropdown {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background: white;
+    z-index: 2;
+  }
+}
+
+.gear-dropdown {
+  display: none;
+}
