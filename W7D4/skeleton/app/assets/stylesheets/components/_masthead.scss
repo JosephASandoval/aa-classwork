@@ -6,8 +6,6 @@
 	position: relative;
 }
 
-
-
 .language-nav {
 	position: absolute;
 	top: -15px;
@@ -31,7 +29,7 @@
 	}
 }
 
-.language-nav ul li:first-child {
+.language-nav li:first-child {
 	font-weight: bold;
 }
 
@@ -77,4 +75,8 @@
 	strong {
 		color: green;
 	}
+}
+
+.masthead-links li:last-child {
+	border-right: none;
 }
