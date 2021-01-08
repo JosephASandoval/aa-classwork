@@ -17,3 +17,9 @@
     text-transform: uppercase;
   }
 }
+
+@media all and (max-width: 1000px) {
+  .section-nav {
+    display: none;
+  }
+}

@@ -24,9 +24,6 @@
     }
   }
 
-  // span {
-
-  // }
 }
 
 .right-nav  {
@@ -54,4 +51,23 @@
 .right-nav > ul > li:last-of-type:hover {
   background: $lightest-gray;
   cursor: pointer;
+}
+
+@media all and (max-width: 1000px) {
+  .right-nav button {
+    display: none;
+  }
+
+  .left-nav {
+    margin: 0;
+  }
+
+  .main-nav {
+    padding: 20px;
+  }
+
+}
+
+#sections-sidebar-btn {
+  position: relative;
 }

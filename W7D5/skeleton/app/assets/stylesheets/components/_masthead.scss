@@ -80,3 +80,9 @@
 .masthead-links li:last-child {
 	border-right: none;
 }
+
+@media all and (max-width: 1000px) {
+  .language-nav {
+    display: none;
+  }
+}
