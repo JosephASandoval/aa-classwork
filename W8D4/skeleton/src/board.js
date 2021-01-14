@@ -21,7 +21,6 @@ function _makeGrid () {
   return board;
 }
 
-// console.log(_makeGrid());
 /**
  * Constructs a Board with a starting grid set up.
  */
@@ -90,32 +89,24 @@ Board.prototype.isOccupied = function (pos) {
  *
  * Returns empty array if no pieces of the opposite color are found.
  */
-Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip){
+Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip = []){
   
-  let piece = this.getPiece(pos);
-  let dx, dy = dir[0], dir[1];
+  let dx = dir[0], dy = dir[1];
   let next_pos = new Array(2);
   next_pos[0] = pos[0] + dx;
   next_pos[1] = pos[1] + dy;
-  
-  let next_piece = this.getPiece(next_pos);
-  
-  if (!this.isOccupied(next_pos)) {
+
+  if (!this.isValidPos(next_pos)) {
     return [];
-  }
-
-  if (this.isMine(next_pos)) {
+  } else if (!this.isOccupied(next_pos)) {
     return [];
+  } else if (this.isMine(next_pos, color)) {
+    return piecesToFlip;
+  } else {
+    piecesToFlip.push(next_pos)
   }
-
-  if (piece.color === next_piece.color) {
-    piecesToFlip.push(next_piece));
-  }
-
-  piecesToFlip.forEach(el => el.flip);
-
-  return this._positionsToFlip(next_pos, next_piece.color, dir, piecesToFlip);
-
+  
+  return this._positionsToFlip(next_pos, color, dir, piecesToFlip);
 };
 
 /**
