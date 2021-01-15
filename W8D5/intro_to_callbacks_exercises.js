@@ -4,6 +4,7 @@ class Clock {
         this.hours = timeNow.getHours();
         this.minutes = timeNow.getMinutes();
         this.seconds = timeNow.getSeconds();
+
         // 1. Create a Date object.
         // 2. Store the hours, minutes, and seconds.
         // 3. Call printTime.
@@ -26,3 +27,5 @@ const clock = new Clock();
 console.log("Hi");
 
 console.log(new Date());
+
+'Hello'
