@@ -24,6 +24,7 @@ class Clock {
 
     _tick() {
         
+        
         // 1. Increment the time by one second.
         // 2. Call printTime.
     }
