@@ -9,7 +9,6 @@ class Clock {
         this.time;
 
         setInterval(this._tick, 1000);
-
         // 1. Create a Date object.
         // 2. Store the hours, minutes, and seconds.
         // 3. Call printTime.
@@ -36,4 +35,3 @@ console.log("Hi");
 
 console.log(new Date());
 
-'Hello'
