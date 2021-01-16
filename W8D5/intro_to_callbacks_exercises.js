@@ -40,7 +40,7 @@ class Clock {
     }
 }
 
-// const clock = new Clock();
+const clock = new Clock();
 
 // console.log(clock.printTime());
 
