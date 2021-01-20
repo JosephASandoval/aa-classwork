@@ -5,13 +5,20 @@ class View {
     this.setupBoard();
   }
 
-  bindEvents() {}
+  bindEvents() {
+    this.$el.on("click", "li", (e) => {
+      const $square = $(e.currentTarget);
+      this.makeMove($square);
+    })
+  }
 
-  makeMove($square) {}
+  makeMove($square) {
+    
+  }
 
   setupBoard() {
     // const $ul = $("<ul class='grid'></ul>")
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 9; i++) {
       const $li = $("<li></li>");
       this.$el.append($li);
     }
