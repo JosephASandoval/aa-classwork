@@ -22,6 +22,14 @@ class View {
     this.game.playMove(pos);
     $square.text(mark);
     $square.addClass("clicked");
+    if (this.game.isOver()) {
+      this.$el.off("click");
+      this.$el.addClass("game_over");
+      const winner = this.game.winner();
+      if (winner) {
+        this.$el.addClass(`winner is ${winner}`)
+      }
+    }
   }
 
   setupBoard() {

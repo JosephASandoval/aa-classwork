@@ -31,3 +31,8 @@ li:hover {
   background: white;
   font-size: 20px;
 }
+
+.game_over {
+  background: white;
+  color: black;
+}
