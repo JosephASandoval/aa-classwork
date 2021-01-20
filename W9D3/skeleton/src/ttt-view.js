@@ -10,10 +10,10 @@ class View {
   makeMove($square) {}
 
   setupBoard() {
-    const $ul = $("<ul class='grid'></ul>")
+    // const $ul = $("<ul class='grid'></ul>")
     for (let i = 0; i < 8; i++) {
       const $li = $("<li></li>");
-      $ul.append($li);
+      this.$el.append($li);
     }
   }
 }
