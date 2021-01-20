@@ -7,4 +7,5 @@ const Game = require("./../node_solutions/game.js") // require appropriate file
     // const $ul = $("<ul class='grid'></ul>")
     const $ul = $("ul")
     const view = new View(game, $ul);
+    view.bindEvents();
   });

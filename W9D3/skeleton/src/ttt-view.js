@@ -12,28 +12,38 @@ class View {
       // this.game.playmove(pos);
       const $square = $(e.currentTarget);
       this.makeMove($square);
+      // $square.toggleClass("clicked")
     })
   }
 
   makeMove($square) {
     const pos = $square.data("pos");
-    const currentPlayer = this.game.currentPlayer;
+    const mark = this.game.currentPlayer;
     this.game.playMove(pos);
+    $square.text(mark);
+    $square.addClass("clicked");
   }
 
   setupBoard() {
     // const $ul = $("<ul class='grid'></ul>")
-    for (let i = 0; i < 9; i++) {
-      const $li = $("<li></li>");
-      const pos = ([i / 3, i % 3]);
-      $li.data("pos", pos);
-      this.$el.append($li);
+    // for (let i = 0; i < 9; i++) {
+    //   const $li = $("<li></li>");
+    //   const pos = [i / 3, i % 3];
+    //   $li.data("pos", pos);
+    //   this.$el.append($li);
+    // }
+    for (let row = 0; row < 3; row++) {
+      for (let col = 0; col < 3; col++) {
+        const $li = $("<li></li>");
+        const pos = [row, col];
+        $li.data("pos", pos);
+        this.$el.append($li);
+      }
     }
-  }
+  }  
 }
 
-    // for (let i = 0; i < 3; i++) {
-    //   for (let i = 0; i < 3; i++) {
+
       
 
 
