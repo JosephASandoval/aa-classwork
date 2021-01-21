@@ -1,4 +1,5 @@
 // const { ids } = require("webpack")
+const APIUtil = require('./api_util.js')
 
 class FollowToggle {
   constructor(el) {
@@ -23,20 +24,22 @@ class FollowToggle {
     if(this.followState === "unfollowed") {
       this.followState = "followed";
       this.render();
-      return $.ajax({
-        method: "POST",
-        url: `/users/${this.userId}/follow`,
-        dataType: "JSON"
-      })
+      // return $.ajax({
+      //   method: "POST",
+      //   url: `/users/${this.userId}/follow`,
+      //   dataType: "JSON"
+      // })
+      APIUtil.followUser(this.userId);
       
     } else {
       this.followState = "unfollowed";
       this.render();
-      return $.ajax({
-        method: "DELETE",
-        url: `/users/${this.userId}/follow`,
-        dataType: "JSON"
-      })
+      // return $.ajax({
+      //   method: "DELETE",
+      //   url: `/users/${this.userId}/follow`,
+      //   dataType: "JSON"
+      // })
+      APIUtil.unfollowUser(this.userId);
     }
   }
 }
