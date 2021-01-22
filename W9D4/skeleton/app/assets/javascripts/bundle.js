@@ -106,6 +106,20 @@ class FollowToggle {
 
 module.exports = FollowToggle;
 
+/***/ }),
+
+/***/ "./frontend/users_search.js":
+/*!**********************************!*\
+  !*** ./frontend/users_search.js ***!
+  \**********************************/
+/***/ ((module) => {
+
+class UsersSearch {
+  
+}
+
+module.exports = UsersSearch;
+
 /***/ })
 
 /******/ 	});
@@ -139,10 +153,14 @@ module.exports = FollowToggle;
   !*** ./frontend/twitter.js ***!
   \*****************************/
 const followToggle = __webpack_require__(/*! ./follow_toggle.js */ "./frontend/follow_toggle.js");
+const usersSearch = __webpack_require__(/*! ./users_search.js */ "./frontend/users_search.js");
 
 $(() => {
   $("button.follow-toggle").each((index, button_ele) => {
     new followToggle(button_ele);
+  })
+  $("nav.users-search").each((index, search_ele) => {
+    new usersSearch(search_ele);
   })
 })
 
