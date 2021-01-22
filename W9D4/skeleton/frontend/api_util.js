@@ -1,19 +1,19 @@
 
 const APIUtil = {
   followUser: id => {
-    APIUtil.changeFollowStatus(id, 'POST') 
+    return $.ajax({
+      method: "POST",
+      url: `/users/${id}/follow`,
+      dataType: "JSON",
+    }); 
   },
 
   unfollowUser: id => {
-    APIUtil.changeFollowStatus(id, 'DELETE') 
-  },
-
-  changeFollowStatus: function(id, method) {
     return $.ajax({
-      method: method,
+      method: "DELETE",
       url: `/users/${id}/follow`,
-      dataType: "JSON"
-    })
+      dataType: "JSON",
+    });
   }
 };
 
