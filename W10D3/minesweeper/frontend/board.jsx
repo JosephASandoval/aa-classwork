@@ -7,13 +7,25 @@ export default class Board extends React.Component {
   }
 
   renderRows() {
+    let board = this.props.board
+    debugger
+    board.grid.map ((row, idx) => {
+      return (
 
+      )
+    })
+  }
+
+  renderTiles(row) {
+    row.map ((tile, idx) => {
+      <Tile />
+    })
   }
 
   render() {
     return (
       <div>
-        {this.renderRows()}
+        { this.renderRows() }
       </div>
     )
   }
