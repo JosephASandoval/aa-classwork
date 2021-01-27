@@ -1,24 +1,36 @@
 import React from "react";
-import Tile from './tile'
+import Tile from './tile';
+
+import * as Minesweeper from '../minesweeper'
 
 export default class Board extends React.Component {
   constructor(props) {
     super(props);
+
+    let board = this.props.board;
+
+    this.renderTiles = this.renderTiles.bind(this)
   }
 
   renderRows() {
     let board = this.props.board
-    debugger
     board.grid.map ((row, idx) => {
       return (
-
+        <div>
+          {this.renderTiles(row, idx)}
+        </div>
       )
     })
   }
 
-  renderTiles(row) {
+  renderTiles(row, idx) {
     row.map ((tile, idx) => {
-      <Tile />
+      return (
+        <Tile
+          tile={tile}
+          updateGame={this.props.updateGame}
+        />
+      )
     })
   }
 
