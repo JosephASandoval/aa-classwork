@@ -9,27 +9,41 @@ class Clock extends React.Component {
             time: new Date()
         }
 
+        this.tick = this.tick.bind(this)
+
     }
 
     tick(){
         this.setState({time: new Date()})
     }
 
-    
+    componentDidMount () {
+        console.log(this.tick)
+        console.log(this.tick())
+        this.interval = setInterval(this.tick, 1000)
+    }
+
+    componentWillUnmount () {
+        clearInterval(this.interval)
+    }
 
     render(){
         return (
-            <>
-                <h1>Clock</h1>
-            </>
-        )
+          <>
+            <div className="clock">
+            <h1>Clock</h1>
+            <ul>
+              {this.state.time.getHours()}:{this.state.time.getMinutes()}:
+              {this.state.time.getSeconds()}
+            </ul>
+            </div>
+          </>
+        );
     }
-
-
 
 
 
 
  }
 
- export default Clock;
+export default Clock;

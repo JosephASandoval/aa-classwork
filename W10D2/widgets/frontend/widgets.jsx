@@ -1,6 +1,15 @@
 import React from "react";
 import Clock from './clock';
 
-const Widgets = () => <h1>Congratulations, you did it!</h1>;
+const Widgets = () => {
+
+  return (
+    <div>
+      Congratulations, you did it!
+      <Clock/>
+    </div>
+  )
+
+};
 
 export default Widgets;
