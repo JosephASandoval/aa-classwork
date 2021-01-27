@@ -8,21 +8,18 @@ export default class Game extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      board: new Minesweeper.Board()
+      board: new Minesweeper.Board(9, 1),
     }
-
   }
 
   updateGame() {
-
 
   }
 
   render() {
     return(
       <div>
-        <Board />
-        <Tile />
+        <Board board={this.state.board}/>
       </div>
     )
   }
@@ -30,4 +27,4 @@ export default class Game extends React.Component {
 }
 
 // Board component = this.state.board
-// 
+//
