@@ -1,6 +1,5 @@
 import React from 'react'; //library becomes available
 
-import Tile from './tile'
 import Board from './board'
 import * as Minesweeper from '../minesweeper'
 

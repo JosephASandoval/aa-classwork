@@ -11,6 +11,7 @@ export default class Tile extends React.Component {
   render() {
     return (
       <div>
+        T
       </div>
     )
   }
