@@ -9,13 +9,11 @@ export default class Board extends React.Component {
 
     // this.renderTiles = this.renderTiles.bind(this)
     // this.renderRows = this.renderRows.bind(this)
-
   }
 
   renderRows() {
-    console.log("hello rows")
     let board = this.props.board
-    board.grid.map ((row, idx) => {
+    return board.grid.map ((row, idx) => {
       return (
         <div>
           {this.renderTiles(row, idx)}
@@ -25,9 +23,8 @@ export default class Board extends React.Component {
   }
 
   renderTiles(row, idx) {
-    console.log("hello titles")
-    row.map ((tile, idx) => {
-      return (
+    return row.map ((tile, idx) => { //this returns the actual array
+      return ( //replaces the tile
         <Tile
           tile={tile}
           updateGame={this.props.updateGame}
@@ -45,24 +42,3 @@ export default class Board extends React.Component {
     )
   }
 }
-
-// const JobIndex = (props) => {
-//     const jobsArr = props.listings.map((listing) => {
-//                         // must return in a map!!
-//                         return(
-//                             // <li>{listing.company}</li>
-//                             <JobIndexItem
-//                                 key={listing.id}
-//                                 company={listing.company}
-//                                 title={listing.title}
-//                                 type={listing.type}
-//                                 location={listing.location}
-//                             />
-//                         );
-//                     });
-//     return(
-//         <ul>
-//             {jobsArr}
-//         </ul>
-//     )
-// }
