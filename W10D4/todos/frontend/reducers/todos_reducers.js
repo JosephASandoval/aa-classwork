@@ -6,7 +6,7 @@ const todosReducer = (oldState = {}, action) => {
         //case: RECIEVE_TODOS
             //return 
         default:
-            return StaticRange;
+            return oldState;
     }
 }
 
