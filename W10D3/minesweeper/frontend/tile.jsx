@@ -7,9 +7,18 @@ export default class Tile extends React.Component {
   // }
 
   render() {
-    debugger
+    // const tile = this.props.tile
+    // if (tile.bombed) {
+      
+    // } else if (tile.flagged) {
+
+    // } else if (tile.explored) {
+
+    // }
+        
+      
     return (
-      <div className="">
+      <div className="tile">
         T
       </div>
     )
