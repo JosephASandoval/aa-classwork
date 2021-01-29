@@ -1,6 +1,4 @@
-import {RECEIVE_TODOS} from "../actions/todo_actions.js"
-import { RECEIVE_TODO } from "../actions/todo_actions.js"
-
+import { RECEIVE_TODOS, RECEIVE_TODO, REMOVE_TODO } from "../actions/todo_actions.js"
 
 const initialState = {
     1: {
@@ -17,7 +15,6 @@ const initialState = {
     }
 };
 
-
 const todosReducer = (oldState = initialState, action) => {
     console.log("todo_reducer")
     Object.freeze(oldState);
@@ -32,6 +29,9 @@ const todosReducer = (oldState = initialState, action) => {
         case RECEIVE_TODO:
             nextState[action.todo.id] = action.todo;
             return nextState;
+        case REMOVE_TODO:
+            delete nextState[action.todoId];
+            return nextState
         default:
             return oldState;
     }
