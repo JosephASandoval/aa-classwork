@@ -3,7 +3,6 @@ export const RECEIVE_TODO = "RECEIVE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
 
 export const receiveTodos = (todos) => {
-  console.log('recieveTodos')
   return {
     type: RECEIVE_TODOS,
     todos, // same as todos: todos
@@ -11,7 +10,6 @@ export const receiveTodos = (todos) => {
 };
 
 export const receiveTodo = (todo) => {
-  console.log('recieveTodo')
   return {
     type: RECEIVE_TODO,
     todo,

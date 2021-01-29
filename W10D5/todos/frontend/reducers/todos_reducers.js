@@ -16,7 +16,6 @@ const initialState = {
 };
 
 const todosReducer = (oldState = initialState, action) => {
-    console.log("todo_reducer")
     Object.freeze(oldState);
     const nextState = Object.assign({}, oldState);
     switch(action.type){
