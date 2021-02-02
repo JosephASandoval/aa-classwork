@@ -1,6 +1,7 @@
 export const RECEIVE_TODOS = "RECEIVE_TODOS";
 export const RECEIVE_TODO = "RECEIVE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
+import * as TODO_API_Util from "./api/util"
 
 export const receiveTodos = (todos) => {
   return {
@@ -22,5 +23,9 @@ export const removeTodo = (todoId) => {
     type: REMOVE_TODO,
     todoId,
   };
+}
+
+export const fetchTodos = () => (dispatch) => {
+  TODO_API_Util.fetchTodos().then(todo => dispatch(receiveTodo(todo)))
 }
 

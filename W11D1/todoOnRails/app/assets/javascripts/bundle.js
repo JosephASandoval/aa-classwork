@@ -129,7 +129,7 @@ var removeStep = function removeStep(stepId) {
 /*!******************************************!*\
   !*** ./frontend/actions/todo_actions.js ***!
   \******************************************/
-/*! exports provided: RECEIVE_TODOS, RECEIVE_TODO, REMOVE_TODO, receiveTodos, receiveTodo, removeTodo */
+/*! exports provided: RECEIVE_TODOS, RECEIVE_TODO, REMOVE_TODO, receiveTodos, receiveTodo, removeTodo, fetchTodos */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -140,9 +140,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveTodos", function() { return receiveTodos; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveTodo", function() { return receiveTodo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeTodo", function() { return removeTodo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchTodos", function() { return fetchTodos; });
+!(function webpackMissingModule() { var e = new Error("Cannot find module './api/util'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 var RECEIVE_TODOS = "RECEIVE_TODOS";
 var RECEIVE_TODO = "RECEIVE_TODO";
 var REMOVE_TODO = "REMOVE_TODO";
+
 var receiveTodos = function receiveTodos(todos) {
   return {
     type: RECEIVE_TODOS,
@@ -161,6 +164,13 @@ var removeTodo = function removeTodo(todoId) {
   return {
     type: REMOVE_TODO,
     todoId: todoId
+  };
+};
+var fetchTodos = function fetchTodos() {
+  return function (dispatch) {
+    !(function webpackMissingModule() { var e = new Error("Cannot find module './api/util'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())().then(function (todo) {
+      return dispatch(receiveTodo(todo));
+    });
   };
 };
 
