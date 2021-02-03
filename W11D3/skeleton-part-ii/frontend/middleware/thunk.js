@@ -6,3 +6,4 @@ const thunk = ({ dispatch, getState }) => next => action => {
 };
   
 export default thunk;
+
