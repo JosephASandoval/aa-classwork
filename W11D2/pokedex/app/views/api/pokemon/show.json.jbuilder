@@ -1,7 +1,18 @@
 json.pokemon do
-  json.extract! @pokemon, :id, :name, :attack, :defense, :poke_type
-  json.image_url asset_path("pokemon_snaps/#{@pokemon.image_url}")
+  json.set! @pokemon.id do 
+    json.extract! @pokemon, :id, :name, :attack, :defense, :poke_type
+    json.image_url asset_path("pokemon_snaps/#{@pokemon.image_url}")
+  end
 end
+
+# json.array! do 
+#   json.name guest.name
+# end
+# [
+#   {
+#     name: guest.name
+#   }
+# ]
 
 json.moves do
   @pokemon.moves.each do |move|
