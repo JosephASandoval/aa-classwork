@@ -13,12 +13,11 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "webpack": "^4.29.3",
-    "webpack-cli": "^3.2.1"
-  },
-  "devDependencies": {
+    "webpack-cli": "^3.2.1",
     "redux-devtools-extension": "^2.13.8"
   },
   "scripts": {
-    "start": "webpack -w --mode=development"
+    "start": "webpack -w --mode=development",
+    "postinstall": "webpack"
   }
 }
