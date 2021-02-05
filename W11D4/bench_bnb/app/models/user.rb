@@ -4,7 +4,7 @@ class User < ApplicationRecord
   validates :password_digest, presence: true
   validates :session_token, presence: true, uniqueness: true
 
-  after_inititalize :ensure_session_token
+  after_initialize :ensure_session_token
 
   attr_reader :password
 

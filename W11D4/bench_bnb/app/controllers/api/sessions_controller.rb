@@ -10,14 +10,18 @@ class Api::SessionsController < ApplicationController
       login!(@user)
       # come back and fix this
     else
-      render json: ["Invalid user credentails"], status 401
+      render json: ["Invalid user credentails"], status: 401
     end
 
   end
 
   def destroy
-    logout!
-    redirect_to new_session_url # double check later
+    if current_user
+        logout!
+        render json: {}
+    else
+        render json: ["not signed in"], status: 404 # double check later
+    end
   end
   
 end
